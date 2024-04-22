@@ -1,15 +1,15 @@
 // Step 1: Create a Model
 
 class UserModel {
-  final String firstName;
-  final String lastName;
-  final String email;
-  final String phoneNumber;
-  final String birthDate;
-  final String gender;
-  final String userID;
+  String firstName;
+  String lastName;
+  String email;
+  String phoneNumber;
+  String birthDate;
+  String gender;
+  String userID;
 
-  const UserModel({
+  UserModel({
     required this.firstName,
     required this.lastName,
     required this.email,
@@ -43,5 +43,30 @@ class UserModel {
       gender: json['gender'] ?? '',
       userID: json['userID'] ?? '',
     );
+  }
+
+  // Setters
+  void setFirstName(String value) {
+    firstName = value;
+  }
+
+  void setLastName(String value) {
+    lastName = value;
+  }
+
+  void setEmail(String value) {
+    email = value;
+  }
+
+  void setGender(String value) {
+    gender = value;
+  }
+
+  void setBirthDate(String value) {
+    birthDate = value;
+  }
+
+  void setPhoneNumber(String value) {
+    phoneNumber = value;
   }
 }

@@ -51,7 +51,7 @@ class _PhoneNumberTextFieldState extends State<PhoneNumberTextField> {
         selectorTextStyle: TextStyle(color: Colors.black),
         initialValue: PhoneNumber(isoCode: initialCountry),
         formatInput: false,
-        autoValidateMode: AutovalidateMode.onUserInteraction,
+        autoValidateMode: AutovalidateMode.disabled,
         cursorColor: AppColors.appBarActive,
       ),
     );

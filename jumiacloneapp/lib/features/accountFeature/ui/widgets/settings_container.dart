@@ -1,52 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../core/utils/constants/app_colors.dart';
-
+import '../../../accountManagement/account-management.dart';
+import 'settings_button.dart';
 
 class SettingsContainer extends StatelessWidget {
   const SettingsContainer({
-    super.key,
+    Key? key,
     required this.appColors,
-  });
+  }) : super(key: key);
 
   final AppColors appColors;
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> children = [
+      SettingsButton(
+        title: 'Address book',
+        onPressed: () {},
+      ),
+    ];
+
+    if (FirebaseAuth.instance.currentUser != null) {
+      children.add(_buildAccountManagementButton(context));
+      children.add(
+        SettingsButton(
+          title: 'Close Account',
+          onPressed: () {},
+        ),
+      );
+    }
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-            color: appColors.secondColor,
-            borderRadius: BorderRadius.circular(7)
+          color: appColors.secondColor,
+          borderRadius: BorderRadius.circular(7),
         ),
-        child:  Column(
-          children: [
-            MaterialButton(
-              child: Row(
-                children: [
-                  10.horizontalSpace,
-                  Text(
-                    'Address Book',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                    ),
-                  ),
-                  const Spacer(),
-                  Icon(Icons.arrow_forward_ios,
-                    size: 12.sp,
-                  ),
-
-                ],
-              ),
-              onPressed: (){},
-            ),
-
-          ],
+        child: Column(
+          children: children,
         ),
       ),
+    );
+  }
+
+  Widget _buildAccountManagementButton(BuildContext context) {
+    return SettingsButton(
+      title: 'Account Management',
+      onPressed: () {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AccountManage()));
+      },
     );
   }
 }

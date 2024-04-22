@@ -49,7 +49,7 @@ dependencies:
   flutter_native_splash: ^2.4.0
   input_quantity: ^2.3.2
   get: ^4.6.6
-
+  dropdown_model_list: ^2.1.0
 
 
 

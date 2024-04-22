@@ -59,7 +59,6 @@ class AccountContainer extends StatelessWidget {
               icon: Icons.youtube_searched_for,
               title: 'Recently Searched',
             ),
-
           ],
         ),
       ),

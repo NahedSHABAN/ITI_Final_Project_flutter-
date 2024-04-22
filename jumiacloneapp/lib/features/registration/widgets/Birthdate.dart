@@ -62,7 +62,7 @@ class _BirthDateFieldState extends State<BirthDateField> {
               suffixIcon: Icon(Icons.calendar_today),
             ),
             controller: TextEditingController(
-              text: '${selectedDate.day}/${selectedDate.month}/${selectedDate.year}',
+              text: '${selectedDate.day.toString().padLeft(2, '0')}/${selectedDate.month.toString().padLeft(2, '0')}/${selectedDate.year.toString().substring(2)}',
             ),
           ),
         ),
