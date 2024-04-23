@@ -155,7 +155,3 @@ class _ProductDetailsState extends State<ProductDetails> {
         bottomNavigationBar:  CustomBottomNavigationBar(product: widget.product,));
   }
 }
-
-
-
-

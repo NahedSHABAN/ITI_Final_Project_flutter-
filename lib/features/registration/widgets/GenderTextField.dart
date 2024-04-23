@@ -5,9 +5,10 @@ import '../../../core/utils/constants/app_colors.dart';
 enum Gender { male, female }
 
 class GenderDropdown extends StatefulWidget {
-  const GenderDropdown({Key? key, required this.onGenderChanged}) : super(key: key);
+  const GenderDropdown({Key? key, required this.onGenderChanged, this.initialValue}) : super(key: key);
 
   final void Function(Gender) onGenderChanged;
+  final Gender? initialValue;
 
   @override
   State<GenderDropdown> createState() => _GenderDropdownState();
@@ -15,6 +16,12 @@ class GenderDropdown extends StatefulWidget {
 
 class _GenderDropdownState extends State<GenderDropdown> {
   Gender? _selectedGender;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedGender = widget.initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {

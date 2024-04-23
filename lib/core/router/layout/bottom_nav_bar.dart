@@ -43,7 +43,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             padding: const EdgeInsetsDirectional.only(end: 10),
             child: GestureDetector(
               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>Cart()));
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>Cart()));
               },
               child: Icon(Icons.shopping_cart_outlined,
                   color: appColors.secondColor),
@@ -60,7 +60,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 const SizedBox(width: 10),
                 GestureDetector(
                   onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>Cart()));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>Cart()));
                   },
                   child: Icon(Icons.shopping_cart_outlined,
                       color: appColors.secondColor),
